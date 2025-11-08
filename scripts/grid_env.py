@@ -1,10 +1,10 @@
 import time
 from typing import Optional, Union, List, Tuple
 
-import gym
+import gymnasium as gym
 import numpy as np
-from gym import spaces
-from gym.core import RenderFrame, ActType, ObsType
+from gymnasium import spaces
+from gymnasium.core import RenderFrame, ActType, ObsType
 np.random.seed(1)
 import render
 
