@@ -1,3 +1,4 @@
+import os
 import random
 import time
 
@@ -24,7 +25,8 @@ class Solve:
         self.qvalue = np.zeros(shape=(self.state_space_size, self.action_space_size))
         self.mean_policy = np.ones(shape=(self.state_space_size, self.action_space_size)) / self.action_space_size
         self.policy = self.mean_policy.copy()
-        self.writer = SummaryWriter("logs")  # 实例化SummaryWriter对象
+        log_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'logs')
+        self.writer = SummaryWriter(log_dir)  # 实例化SummaryWriter对象
 
     def random_greed_policy(self):
         """
@@ -977,4 +979,7 @@ if __name__ == "__main__":
 
     # solver.env.render()
     # solver.env.render_.draw_episode()
-    solver.env.render()
+    # 保存图形而不是显示
+    plt.savefig('result.png', dpi=300, bbox_inches='tight')
+    print("图形已保存到 result.png")
+    # solver.env.render()
